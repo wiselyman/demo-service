@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "demo-service.fullname" . }}
+  labels:
+{{ include "demo-service.labels" . | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: {{ .Values.service.name }}
+  selector:
+    app.kubernetes.io/name: {{ include "demo-service.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
