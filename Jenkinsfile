@@ -1,4 +1,4 @@
-podTemplate(label: 'demo-service',serviceAccount: 'default',containers: [
+podTemplate(label: 'demo-service',serviceAccount: 'my-jenkins',containers: [
   containerTemplate(name: 'gradle', image: 'gradle:5.5.1-jdk8', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'helm', image: 'lachlanevenson/k8s-helm:latest', command: 'cat', ttyEnabled: true)
@@ -26,7 +26,7 @@ volumes: [
 
        stage('Deploy to Kubernetes Cluster'){
             container('helm'){
-               sh "helm upgrade --install --force --set image.tag=${env.version} demo-service demo-service/"
+               sh "helm upgrade --install --force --set image.tag=${env.version} --name demo-service --namespace default demo-service/"
        }
     }
   }
