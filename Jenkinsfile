@@ -12,7 +12,7 @@ volumes: [
            git url: 'https://github.com/wiselyman/demo-service.git', credentialsId: 'github', branch: 'master'
            container('gradle') {
               sh "gradle bootJar"
-              env.version =  sh(returnStdout: true, script: 'gradle properties -q | grep "version:" | awk \'{print $2}\'').trim()
+              env.version =  sh(returnStdout: true, script: './gradlew properties -q | grep "version:" | awk \'{print $2}\'').trim()
              }
        }
 
