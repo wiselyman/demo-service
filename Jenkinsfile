@@ -26,7 +26,7 @@ volumes: [
 
        stage('Deploy to Kubernetes Cluster'){
             container('helm'){
-               sh "helm upgrade --install --force --namespace=default --set image.tag=${env.version} demo-service  demo-service/"
+               sh "helm upgrade --install --force --set image.tag=${env.version} demo-service  demo-service/"
        }
     }
   }
