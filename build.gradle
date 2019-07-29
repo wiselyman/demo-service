@@ -9,10 +9,6 @@ group = 'top.wisely'
 version = '0.0.2-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-bootJar {
-	archiveBaseName = 'app'
-	project.version=""
-}
 
 repositories {
 	mavenCentral()

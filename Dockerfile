@@ -1,6 +1,6 @@
 FROM java:8
 RUN mkdir /app
-ADD build/libs/app.jar /app/app.jar
+ADD build/libs/demo-service-*.jar /app/app.jar
 ADD runboot.sh /app/
 RUN bash -c 'touch /app/app.jar'
 WORKDIR /app
