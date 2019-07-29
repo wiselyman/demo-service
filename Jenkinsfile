@@ -1,4 +1,4 @@
-podTemplate(label: 'demo-service',serviceAccount: 'my-jenkins',containers: [
+podTemplate(label: 'demo-service',serviceAccount: 'default',containers: [
   containerTemplate(name: 'gradle', image: 'gradle:5.5.1-jdk8', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
   containerTemplate(name: 'helm', image: 'lachlanevenson/k8s-helm:latest', command: 'cat', ttyEnabled: true)
